@@ -6,32 +6,34 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard");
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-white">
 
       {/* SIDEBAR (remains same) */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 p-4 md:p-6 bg-gray-100 overflow-auto">
+      <div className="flex-1 p-4 md:p-6  overflow-auto">
 
         <h1 className="text-2xl md:text-3xl font-bold mb-4">Admin Dashboard</h1>
 
         {/* TOP SUMMARY CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 border border-gray-200 rounded-lg">
           {[
             { label: "Total Applications", value: "432" },
             { label: "Approved", value: "275" },
             { label: "Participants", value: "34" }
           ].map((item, i) => (
-            <div key={i} className="bg-white p-4 md:p-6 rounded-lg shadow">
-              <p className="text-gray-500 text-sm md:text-base">{item.label}</p>
-              <p className="text-2xl md:text-3xl font-bold">{item.value}</p>
+            <div key={i} className={`text-center ${
+        i === 1 ? "sm:border-l sm:border-r sm:border-gray-300" : ""
+      }`}>
+              <h2 className="text-gray-500 text-sm md:text-base text-black">{item.label}</h2>
+              <h1 className="text-2xl md:text-3xl font-bold">{item.value}</h1>
             </div>
           ))}
         </div>
 
         {/* APPLICATIONS OVERVIEW CARDS */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow mb-6">
+        <div className="bg-white p-4 md:p-6 rounded-lg border border-gray-200 mb-6">
           <h2 className="text-lg font-semibold mb-4">Applications Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
@@ -39,23 +41,28 @@ export default function Dashboard() {
               { label: "Vehicles", value: "6,540" },
               { label: "Participants", value: "6,540" }
             ].map((item, i) => (
-              <div key={i} className="text-center">
-                <p className="text-gray-500 text-sm md:text-base">{item.label}</p>
-                <p className="text-2xl md:text-3xl font-bold">{item.value}</p>
-              </div>
+              <div
+      key={i}
+      className={`text-center ${
+        i === 1 ? "sm:border-l sm:border-r sm:border-gray-300" : ""
+      }`}
+    >
+      <p className="text-gray-500 text-sm md:text-base">{item.label}</p>
+      <p className="text-2xl md:text-3xl font-bold">{item.value}</p>
+    </div>
             ))}
           </div>
         </div>
 
         {/* APPLICATIONS TABLE */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow mb-6">
+        <div className="bg-white p-4 md:p-6 rounded-lg border border-gray-200 mb-6">
           <h2 className="text-lg font-semibold mb-4">Applications Overview</h2>
 
           {/* Horizontal scroll for mobile */}
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse min-w-[500px]">
+            <table className="w-full border-collapse min-w-[500px] ">
               <thead>
-                <tr className="bg-gray-200 text-left">
+                <tr className="bg-[#fbf9f8] text-left">
                   <th className="p-3 text-sm">Organisation</th>
                   <th className="p-3 text-sm">Status</th>
                   <th className="p-3 text-sm">Vehicles</th>

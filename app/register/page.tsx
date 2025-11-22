@@ -41,15 +41,11 @@ export default function Register() {
   return (
     <div className="flex flex-col items-center min-h-screen py-8 px-4 bg-gray-50">
       {/* Top Logo */}
-      <div className="mb-6">
-        <Image
-          src="/logo.png" // Change to your actual logo file
-          width={120}
-          height={120}
-          alt="Notting Hill Carnival"
-          className="mx-auto"
-        />
-      </div>
+     <div className="flex items-center justify-center bg-yellow-400 text-black rounded-full w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto">
+  <p className="text-center text-sm sm:text-base md:text-lg font-semibold">
+    NOTTING HILL CARNIVAL
+  </p>
+</div>
 
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
         Organisation Registration Portal
@@ -60,9 +56,11 @@ export default function Register() {
         className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl space-y-4"
       >
         {/* 2 Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           <FormInput label="Organisation Name?" name="organisationName" register={register} errors={errors} />
           <FormInput label="Organisation Bio?" name="organisationBio" register={register} errors={errors} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormInput label="Website?" name="website" register={register} errors={errors} />
           <FormInput label="Instagram?" name="instagram" register={register} errors={errors} />
           <FormInput label="Correspondent Contact 1 - Name" name="contact1Name" register={register} errors={errors} />
@@ -72,30 +70,43 @@ export default function Register() {
           <FormInput label="What will you be participating as?" name="participationAs" register={register} errors={errors} />
           <FormInput label="Name of Organisation Manager" name="managerName" register={register} errors={errors} />
           <FormInput label="How many vehicles do you require?" name="vehiclesRequired" register={register} errors={errors} />
-        </div>
 
-        {/* Large Text Areas */}
         <FormTextArea
           label="Describe each vehicle in detail (including size & specifications)"
           name="vehicleDetails"
           register={register}
           errors={errors}
         />
-
         <FormTextArea
           label="Estimated number of participants performing"
           name="estimatedParticipants"
           register={register}
           errors={errors}
         />
+        {/* <div className="flex justify-center w-full mt-6 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition">
 
-        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition"
+          className="bg-yellow-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
         >
           Submit
         </button>
+        </div> */}
+        <div className="flex flex-col justify-between w-full rounded-lg text-white py-3 h-40">
+  {/* Optional content above the button */}
+
+  <button
+    type="submit"
+    className="w-full bg-red-500 text-white px-6 py-2 rounded hover:bg-red-700 transition mt-auto"
+  >
+    Submit
+  </button>
+</div>
+        </div>
+        {/* Large Text Areas */}
+
+
+        {/* Submit Button */}
       </form>
     </div>
   );
